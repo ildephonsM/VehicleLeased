@@ -2,53 +2,57 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - Vehicles Leased Manager</title>
+
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/dashboard")
+    <link href="~/Content/dashboard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Suppliers", "Index", "Suppliers", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Branches", "Index", "Branches", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Clients", "Index", "Clients", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Drivers", "Index", "Drivers", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Vehicles", "Index", "Vehicles", null, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Vehicle Summary", "Summary", "Home", null, new { @class = "nav-link" })
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-light shadow-sm px-3">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">Vehicles Leased Manager</a>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Vehicles Leased Manager</p>
-        </footer>
+
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar p-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    @Html.ActionLink("Vehicle Report", "Index", "Home", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Suppliers", "Index", "Suppliers", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Branches", "Index", "Branches", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Clients", "Index", "Clients", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Drivers", "Index", "Drivers", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Vehicles", "Index", "Vehicles", null, new { @class = "nav-link" })
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            @RenderBody()
+        </main>
     </div>
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Vehicles Leased Manager</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

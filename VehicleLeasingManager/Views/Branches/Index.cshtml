@@ -1,39 +1,38 @@
 ﻿@model IEnumerable<VehicleLeasingManager.Models.Branch>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Branches";
 }
 
-<h2>Index</h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Branches</h2>
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Create New
+    </a>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BranchName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BranchName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BranchId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BranchId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BranchId })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover table-bordered bg-white shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.BranchName)</th>
+            <th>@Html.DisplayNameFor(model => model.Location)</th>
+            <th style="width: 200px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.BranchName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a href="@Url.Action("Edit", new { id = item.BranchId })" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="@Url.Action("Details", new { id = item.BranchId })" class="btn btn-sm btn-info">Details</a>
+                        <a href="@Url.Action("Delete", new { id = item.BranchId })" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

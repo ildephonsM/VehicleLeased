@@ -1,8 +1,7 @@
-﻿@{
+﻿@model VehicleLeasingManager.Models.SummaryReport
+
+@{
     ViewBag.Title = "Summary Report";
-    var supplierStats = ViewBag.SupplierStats as List<dynamic>;
-    var branchStats = ViewBag.BranchStats as List<dynamic>;
-    var clientStats = ViewBag.ClientStats as List<dynamic>;
 }
 
 <h2>Summary Report</h2>
@@ -12,14 +11,14 @@
     <thead>
         <tr>
             <th>Supplier</th>
-            <th>Make</th>
-            <th>Count</th>
+            <th>Manufacturer</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var stat in supplierStats)
+        @foreach (var stat in Model.SupplierStats)
         {
-            <tr>
+            <tr class="@(stat.Manufacturer == "TOTAL" ? "table-success font-weight-bold" : "")">
                 <td>@stat.Supplier</td>
                 <td>@stat.Manufacturer</td>
                 <td>@stat.Count</td>
@@ -28,19 +27,19 @@
     </tbody>
 </table>
 
-<h3>Vehicles per Branch and Make</h3>
+<h3>Vehicles per Branch and Manufacturer</h3>
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>Branch</th>
             <th>Manufacturer</th>
-            <th>Count</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var stat in branchStats)
+        @foreach (var stat in Model.BranchStats)
         {
-            <tr>
+            <tr class="@(stat.Manufacturer == "TOTAL" ? "table-success font-weight-bold" : "")">
                 <td>@stat.Branch</td>
                 <td>@stat.Manufacturer</td>
                 <td>@stat.Count</td>
@@ -49,19 +48,19 @@
     </tbody>
 </table>
 
-<h3>Vehicles per Client and Make</h3>
+<h3>Vehicles per Client and Manufacturer</h3>
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>Client</th>
             <th>Manufacturer</th>
-            <th>Count</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var stat in clientStats)
+        @foreach (var stat in Model.ClientStats)
         {
-            <tr>
+            <tr class="@(stat.Manufacturer == "TOTAL" ? "table-success font-weight-bold" : "")">
                 <td>@stat.Client</td>
                 <td>@stat.Manufacturer</td>
                 <td>@stat.Count</td>

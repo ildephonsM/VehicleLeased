@@ -1,82 +1,46 @@
 ﻿@model VehicleLeasingManager.Models.Vehicle
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Vehicle Details";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
-<h2>Details</h2>
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Vehicle Details</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Branch.BranchName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Branch.BranchName)</dd>
 
-<div>
-    <h4>Vehicle</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Branch.BranchName)
-        </dt>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Client.CompanyName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Client.CompanyName)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Branch.BranchName)
-        </dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Driver.FullName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Driver.FullName)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Client.CompanyName)
-        </dt>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Supplier.SupplierName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Supplier.SupplierName)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Client.CompanyName)
-        </dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Manufacturer)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Manufacturer)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Driver.FullName)
-        </dt>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Model)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Model)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Driver.FullName)
-        </dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Year)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Year)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
-        </dt>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.RegistrationNumber)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.RegistrationNumber)</dd>
+            </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.SupplierName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RegistrationNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RegistrationNumber)
-        </dd>
-
-    </dl>
+            <div class="mt-4">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleId }, new { @class = "btn btn-warning me-2" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.VehicleId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

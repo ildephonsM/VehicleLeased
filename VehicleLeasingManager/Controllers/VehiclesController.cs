@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using VehicleLeasingManager.Models;
 
@@ -43,12 +40,10 @@ namespace VehicleLeasingManager.Controllers
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "CompanyName");
             ViewBag.DriverId = new SelectList(db.Drivers, "DriverId", "FullName");
             ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "SupplierName");
-            return View();
+            return View(new Vehicle());
         }
 
         // POST: Vehicles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "VehicleId,Manufacturer,Model,Year,RegistrationNumber,SupplierId,BranchId,ClientId,DriverId")] Vehicle vehicle)
@@ -88,8 +83,6 @@ namespace VehicleLeasingManager.Controllers
         }
 
         // POST: Vehicles/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "VehicleId,Manufacturer,Model,Year,RegistrationNumber,SupplierId,BranchId,ClientId,DriverId")] Vehicle vehicle)

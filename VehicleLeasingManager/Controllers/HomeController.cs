@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using VehicleLeasingManager.Models;
 
@@ -9,61 +6,87 @@ namespace VehicleLeasingManager.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
+        private readonly VehicleLeasingContext context = new VehicleLeasingContext();
 
-        public ActionResult Summary()
+        public ActionResult Index()
         {
             var context = new VehicleLeasingContext();
 
-            var supplierStats = context.Vehicles
+            /// Supplier stats with their totals
+            var supplierStatsRaw = context.Vehicles
                 .GroupBy(v => new { v.Supplier.SupplierName, v.Manufacturer })
-                .Select(g => new
+                .Select(g => new SupplierStat
                 {
                     Supplier = g.Key.SupplierName,
-                    Make = g.Key.Manufacturer,
+                    Manufacturer = g.Key.Manufacturer,
                     Count = g.Count()
                 }).ToList();
 
-            var branchStats = context.Vehicles
+            var supplierStats = supplierStatsRaw
+                .GroupBy(s => s.Supplier)
+                .SelectMany(group => group.Concat(new[]
+                {
+            new SupplierStat
+            {
+                Supplier = group.Key,
+                Manufacturer = "TOTAL",
+                Count = group.Sum(x => x.Count)
+            }
+                })).ToList();
+
+            // Branch stats with their totals
+            var branchStatsRaw = context.Vehicles
                 .GroupBy(v => new { v.Branch.BranchName, v.Manufacturer })
-                .Select(g => new
+                .Select(g => new BranchStat
                 {
                     Branch = g.Key.BranchName,
-                    Make = g.Key.Manufacturer,
+                    Manufacturer = g.Key.Manufacturer,
                     Count = g.Count()
                 }).ToList();
 
-            var clientStats = context.Vehicles
+            var branchStats = branchStatsRaw
+                .GroupBy(b => b.Branch)
+                .SelectMany(group => group.Concat(new[]
+                {
+            new BranchStat
+            {
+                Branch = group.Key,
+                Manufacturer = "TOTAL",
+                Count = group.Sum(x => x.Count)
+            }
+                })).ToList();
+
+            // Client stats with their totals
+            var clientStatsRaw = context.Vehicles
                 .GroupBy(v => new { v.Client.CompanyName, v.Manufacturer })
-                .Select(g => new
+                .Select(g => new ClientStat
                 {
                     Client = g.Key.CompanyName,
-                    Make = g.Key.Manufacturer,
+                    Manufacturer = g.Key.Manufacturer,
                     Count = g.Count()
                 }).ToList();
 
-            ViewBag.SupplierStats = supplierStats;
-            ViewBag.BranchStats = branchStats;
-            ViewBag.ClientStats = clientStats;
+            var clientStats = clientStatsRaw
+                .GroupBy(c => c.Client)
+                .SelectMany(group => group.Concat(new[]
+                {
+            new ClientStat
+            {
+                Client = group.Key,
+                Manufacturer = "TOTAL",
+                Count = group.Sum(x => x.Count)
+            }
+                })).ToList();
 
-            return View();
+            var model = new SummaryReport
+            {
+                SupplierStats = supplierStats,
+                BranchStats = branchStats,
+                ClientStats = clientStats
+            };
+
+            return View("Summary", model); // Load Summary.cshtml as homepage
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

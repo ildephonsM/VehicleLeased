@@ -1,34 +1,28 @@
 ﻿@model VehicleLeasingManager.Models.Branch
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Branch Details";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // adjust if needed
 }
 
-<h2>Details</h2>
+<div class="container mt-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Branch Details</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.BranchName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BranchName)</dd>
 
-<div>
-    <h4>Branch</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BranchName)
-        </dt>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Location)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Location)</dd>
+            </dl>
 
-        <dd>
-            @Html.DisplayFor(model => model.BranchName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-    </dl>
+            <div class="mt-4">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.BranchId }, new { @class = "btn btn-warning me-2" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BranchId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
