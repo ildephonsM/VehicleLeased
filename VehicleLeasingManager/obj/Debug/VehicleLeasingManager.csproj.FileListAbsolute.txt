@@ -51,6 +51,8 @@ C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\roslyn\vbc.rsp
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\roslyn\VBCSCompiler.exe
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\roslyn\VBCSCompiler.exe.config
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Antlr3.Runtime.dll
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.dll
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.SqlServer.dll
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Microsoft.Web.Infrastructure.dll
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Newtonsoft.Json.dll
@@ -62,6 +64,8 @@ C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\System.Web.WebPages.Dep
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\System.Web.WebPages.dll
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\System.Web.WebPages.Razor.dll
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\WebGrease.dll
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.xml
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.SqlServer.xml
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\System.Web.Helpers.xml
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\System.Web.Mvc.xml
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\System.Web.Optimization.xml
@@ -73,11 +77,9 @@ C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Newtonsoft.Json.xml
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Antlr3.Runtime.pdb
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleLeasingManager.csproj.AssemblyReference.cache
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleLeasingManager.Migrations.InitialCreate.resources
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleLeasingManager.csproj.GenerateResource.cache
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleLeasingManager.csproj.CoreCompileInputs.cache
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleL.916BB3EE.Up2Date
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleLeasingManager.dll
 C:\Sever\VehicleLeasingManager\VehicleLeasingManager\obj\Debug\VehicleLeasingManager.pdb
-C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.dll
-C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.SqlServer.dll
-C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.xml
-C:\Sever\VehicleLeasingManager\VehicleLeasingManager\bin\EntityFramework.SqlServer.xml

@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Summary Report";
+    var supplierStats = ViewBag.SupplierStats as List<dynamic>;
+    var branchStats = ViewBag.BranchStats as List<dynamic>;
+    var clientStats = ViewBag.ClientStats as List<dynamic>;
+}
+
+<h2>Summary Report</h2>
+
+<h3>Vehicles per Supplier and Manufacturer</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Supplier</th>
+            <th>Make</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stat in supplierStats)
+        {
+            <tr>
+                <td>@stat.Supplier</td>
+                <td>@stat.Manufacturer</td>
+                <td>@stat.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Vehicles per Branch and Make</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Branch</th>
+            <th>Manufacturer</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stat in branchStats)
+        {
+            <tr>
+                <td>@stat.Branch</td>
+                <td>@stat.Manufacturer</td>
+                <td>@stat.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Vehicles per Client and Make</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Manufacturer</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stat in clientStats)
+        {
+            <tr>
+                <td>@stat.Client</td>
+                <td>@stat.Manufacturer</td>
+                <td>@stat.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

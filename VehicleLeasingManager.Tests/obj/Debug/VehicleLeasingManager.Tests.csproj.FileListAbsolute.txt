@@ -1,0 +1,2 @@
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager.Tests\obj\Debug\VehicleLeasingManager.Tests.csproj.AssemblyReference.cache
+C:\Sever\VehicleLeasingManager\VehicleLeasingManager.Tests\obj\Debug\VehicleLeasingManager.Tests.csproj.CoreCompileInputs.cache
